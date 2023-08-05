@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="stylesheet" href="KRS1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>papular_places_page_home</title>
+
+    <style>
+
+    /* <!-----nav_bar--> */
+    header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: rgb(221, 248, 252);
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(228,188,86);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+
+      /* <!----slide images-----------> */
+  .slide_one{
+  height: 230px;
+  width: 400px;
+  display: grid;
+  place-items: center;
+  padding: 15px;
+  perspective: 100px;
+  
+  }
+  .slider_one{
+  
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 280px;
+  width: 100%;
+  
+  }
+  .side-track{
+  display: flex;
+  width: calc(150px *30);
+  animation: play 20s linear infinite;
+  
+  }
+  .side-track:hover{
+  animation-play-state: paused;
+  }
+  @keyframes play {
+  0%{
+      transform: translateX(0);
+  }
+  100%{
+      transform: translateX(calc(-250px*9));
+  }
+  }
+  
+  img{
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  }
+  img:hover{
+  transform: translateZ(10px);
+  }
+  
+  /* #header{
+      background: url(home_video.mp4) top/cover no-repeat;
+  } */
+  .btn:not(.nav-btns button){
+      background-color: white;
+      color:rgb(85,85,85);
+      padding: 15px 28px;
+      border-radius:25px;
+      border: 5px solid  rgb(0,0,0,0.1);
+  
+  }
+  .btn:not(.nav-btns button):hover{
+      background-color: var(--pink);
+      color:#f30606;
+      border-color: var(--pink);
+  }
+  /* <!----slide images-----------> */
+  .col{
+    padding: 15px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+  }
+  .card-img-top{  
+    width: 300px;
+    height: 200px;
+    transition: 1s;
+  }
+  .card-img-top:hover{
+    transform: scale(1.2);
+  
+  }
+  .pagination{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* <!---------foooter--> */
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: rgb(119, 119, 255);
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: rgb(244, 245, 245);
+    
+}
+body{
+  background-color: rgb(250, 246, 242);
+}
+
+          
+      
+      </style>
+  </head>
+  <body>
+    <header class="header_fixed fixed">
+      <a href="logo.webp" class="logo">Kailash Yatra</a>
+
+      <input type="checkbox" id="menu-bar">
+      <label for="menu-bar">Menu</label>
+
+      <nav class="navbar">
+          <ul>
+             
+            <li><a class="nav1" href="place_home.html">Home</a></li>
+              <li><a href="aboutus_page.html">About</a></li>
+              <li><a href="package.html">Packages</a></li>
+              <li><a href="#">Papular Places</a>
+                  <ul>
+                      <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                      <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                      <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                      <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Travel Guide</a>
+                  <ul>
+                      <li><a href="blog.html">Blog & Stories</a></li>
+                      <li><a href="reviews.html">Review</a></li>
+                      <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                      <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                      <li><a href="altitude.html">Altitude Chat</a></li>
+                      <li><a href="checklist.html">Packing Checklist</a></li>
+                      <li><a href="ph.html">Photos </a></li>
+                      <li><a href="vds.html">Videos</a></li>
+                      
+                  </ul>
+              </li>
+              <li><a href="contact_us_kailash.html">Contact</a></li>   
+          </ul>
+      </nav>
+  </header>
+    <section>
+
+        <img src="https://kailash-yatra.org/assets/img/destination.jpg" class="img-fluid img-thumbnail mt-5">
+    </section>
+    <section class="place_visit bg-warning">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="head_ing text-center p-4 fs-5">
+                        <h1>Places to Visit Near Kailash Mansarovar</h1>
+                        <hr>
+                        <p>The majestic Mount Kailash is one of the most passionately followed gigantic peaks in Asia
+                            and is not only a religious epicetre for the Hindus, but also for jains, Buddhists and the
+                            Bon
+                            Pons. Standing upright at a literally high elevation of 6638 m (2177 ft.), the trek to
+                            kailash
+                            Parvat i.e the Kailash manasarovar Yatra is known as one of the toughest trails in the
+                            world. While
+                            being indulged in this journey, the pilgrims coe across abundant spiritual hubs which are
+                            accompanied with immense divinity and they are listed below:</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 p-5">
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/holy-mount-kailash.jpg" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Mount Kailash</h5>
+              <p class="card-text">A winsome mystical agglomeration, a heavenly abode to Lord Shiva, an immensely esteemed
+                pious destination ardently followed by thousands of devotees from all over the world-
+                this is what defines the spiritual as well as..</p>
+                <a href="papular_places_page02.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xlake-manasarovar-2019.jpg.pagespeed.ic.XGNRvnEeSK.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Lake Mansarovar</h5>
+              <p class="card-text">The holiest lake of Tibet and also considered to be the world’s highest fresh-water lake,
+                Lake Manasarovar is clipped in the far western Tibet Ngari Prefecture that is known to
+                be ‘not so far’ from the mighty Mt Kailash.</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xyam-dwar-2019.jpg.pagespeed.ic.kOR_vFWai8.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Yan Dwar</h5>
+              <p class="card-text">Situated in the foothill of holy Mount Kailash, the Gate of Salvation, the Yam Dwar is
+                one of the most prominent destinations in the Kailash Manasarovar Yatra. Engross in its
+                spiritual relevance and feel serene!</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 bg-light">
+              <img src="https://kailash-yatra.org/images/xpashupatinath.jpg.pagespeed.ic.5EnKAtv7Im.webp" class="card-img-top img-thumbnail w-100" alt="...">
+              <br>
+              <div class="card-body">
+                <h5 class="card-title">Pashupatinath Temple</h5>
+                <p class="card-text">Pashupatinath is a Hindu temple stands in the center of the town of Deopatan, in the
+                    middle of an open courtyard on the banks of the Baghmati River, the village is 4 km far
+                    away from Kathmandu in northwest.</p>
+                    <a href="papular_places_page01.html" class="btn">VIEW DETAILS</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 p-5">
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xgauri-kund-yatra.jpg.pagespeed.ic.rOW9bEGcwT.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Gouri Kund</h5>
+              <p class="card-text">Gauri Kund, a water body that is also known as the Lake of Compassion, lies on the way
+                while Siwasthalgoing on downwards from Dolma - La (Dolma Pass). This steep descent from
+                Dolma Pass is a wonderful lake which is at an..</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xtirthpuri.jpg.pagespeed.ic.olpq7WJS87.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Tirthapuri</h5>
+              <p class="card-text">Also known as Bhasmasur Parvat, situated next to the Sutlej River on the North bank, the
+                Tirthapuri Hot Springs fill the infertile backdrop for this area with steam. Devotes
+                normally visit Tirthapuri after the Kailash pilgrimage..</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xrakshas-tal.jpg.pagespeed.ic.Ud4K1Z48EX.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Lake Raksha Taal</h5>
+              <p class="card-text">The lake of the Demon. Rakshas Tal is situated west of holy Manasarovar Lake near Mt
+                Kailash. The river Sutlej originates from the north-western tip of Rakshas Tal. At the
+                height of about 4752 meters (15,591 ft)..</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 bg-light">
+              <img src="https://kailash-yatra.org/images/xmuktinath-temple-yatra.jpg.pagespeed.ic.UEdrlViisY.webp" class="card-img-top img-thumbnail w-100" alt="...">
+              <br>
+              <div class="card-body">
+                <h5 class="card-title">Muktinath Temple</h5>
+                <p class="card-text">Located at an altitude of 3,610 meters (11,872 feet) at the base of the Thorong La
+                    mountain pass in the Mustang district, Muktinath is a highly venerated sacred place for
+                    both Hindus and Buddhists.</p>
+                    <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 p-5">
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xsaptrishi-caves-mount-kailash.jpg.pagespeed.ic.EQKJkoGjah.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Saptarishi Caves</h5>
+              <p class="card-text">The Saptrishi Caves are considered to be an extreme hub in the Mount Kailash Inner
+                Parikrama. As well these caves are counted amongst the most difficult treks experienced
+                at the time of the Kailash Inner Kora. </p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xnandi-parvat-mount-kailash.jpg.pagespeed.ic.p5IX129GNf.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Nandi Parvat</h5>
+              <p class="card-text">Nandi Parvat is considered to be one of the most vital peaks in Kailash Mansarovar Yatra
+                and thus holds utmost significance. A visit and trek to Nandi Parvat is only possible
+                during Kailash Inner Kora tour.</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/xruins-of-guge-kingdom.jpg.pagespeed.ic.D3nJEM-3Ts.webp" class="card-img-top img-thumbnail w-100" alt="...">
+            <br>
+            <div class="card-body">
+              <h5 class="card-title">Guge Kingdom</h5>
+              <p class="card-text">A highly mysterious country, Tibet contains some of those breathtaking historical sites
+                which you can’t even imagine would have existed and one of these is the Guge Kingdom. It
+                is counted amongst the most powerful..</p>
+                <a href="papular_places_page_home.html" class="btn">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 bg-light">
+              <img src="https://kailash-yatra.org/images/xjal_narayan_vishnu_temple.jpg.pagespeed.ic.EwtRvpGF7f.webp" class="card-img-top img-thumbnail w-100" alt="...">
+              <br>
+              <div class="card-body">
+                <h5 class="card-title">Jal Narayan Vishnu</h5>
+                <p class="card-text">The highly devoted Yatra to reach the ultimate Heavenly abode of the almighty Lord Shiva
+                    i.e. the Mount Kailash is counted amongst the most difficult terrains of all times. But,
+                    its results are undoubtedly fruitful...</p>
+                    <a href="papular_places_page03.html" class="btn">VIEW DETAILS</a>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="papular_places_page01.html">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="papular_places_page02.html">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="papular_places_page03.html">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="papular_places_page01.html">Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container text-center text-md-left">
+          <div class="row text-center text-md-left">
+  
+              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info">About Us</h5>
+                  <hr class="md-4">
+                  <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+              </div>
+  
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info">Let Us Help</h5>
+                  <hr class="md-2">
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Your Accout</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Your Orders</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Manage your Content and Devicess</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Help</a>
+                  </p>
+              </div>
+  
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info">Make Money</h5>
+                  <hr class="md-4">
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Refer Friends and family </a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Advartise your Websites</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Become an Affiliates</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Self-publish</a>
+                  </p>
+              </div>
+  
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info underline-heading">Contact</h5>
+                  <hr class="md-4">
+                  <p>
+                      <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                  </p>
+                  <p>
+                      <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                  </p>
+                  <p>
+                      <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                  </p>
+                  <p>
+                      <li class="fas fa-print mr-3"></li>--  +012 3456789
+                  </p>
+              </div>
+  
+          <hr class="mb-4">
+              <div class="row d-flex justify-content-center">
+                  <div>
+                      <p class="text-white">
+                      copyright Senzwiz Technologies 2023 All Rights Reserved By :
+                      <a href="#" style="text-decoration: none;">
+                          <strong class="text-info">The Provider</strong>
+                      </a>
+                      </p>
+                  </div>
+              </div>
+                  <div class="footer-col d-flex justify-content-center">
+                      <div class="social-links">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-youtube"></i></a>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

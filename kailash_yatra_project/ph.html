@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+            text-decoration: none;
+        }
+
+        body{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(250, 246, 242);
+}
+header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: goldenrod;
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(228,188,86);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+.container{
+    width: 100%;
+    text-align: center;
+}
+h1{
+    font-weight: normal;
+    font-size: 40px;
+    position: relative;
+    margin: 20px 0;
+    font-weight: bold;
+    padding-top: 10px;
+}
+p{
+    font-size: 22px;
+}
+a{
+    font-weight: bold;
+}
+        .col{
+  padding: 15px;
+  
+  display: flex;
+  justify-content: center;
+}
+img{
+    width: 100%;
+    border-radius: 5px;
+}
+img:hover{
+    transform: scale(1.1);
+    transition: .1s;
+}
+.img:hover{
+    transform: translateY(8px);
+}
+.img:hover:before{
+    opacity: 1;
+}
+.img:hover .content{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+.content {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    flex-direction: row;
+    opacity: 0;
+    transition: 0.6s;
+    text-align: center;
+    top: 28%;
+    
+}
+.content h2{
+    color: aliceblue;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+.content p{
+    color: aliceblue;
+    font-size: 18px;
+    text-align: center;
+    color: red;
+}
+.content:hover{
+    opacity: 1;
+    transition: 0.1s ease-in-out; 
+}
+
+/* <!---------foooter--> */
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: rgb(119, 119, 255);
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: rgb(244, 245, 245);
+    
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header class="header_fixed fixed">
+        <a href="logo.webp" class="logo">Kailash Yatra</a>
+  
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+  
+        <nav class="navbar">
+            <ul>
+               
+                <li><a class="nav1" href="place_home.html">Home</a></li>
+                <li><a href="aboutus_page.html">About</a></li>
+                <li><a href="package.html">Packages</a></li>
+                <li><a href="#">Papular Places</a>
+                    <ul>
+                        <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                        <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                        <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                        <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Travel Guide</a>
+                    <ul>
+                        <li><a href="blog.html">Blog & Stories</a></li>
+                        <li><a href="reviews.html">Review</a></li>
+                        <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                        <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                        <li><a href="altitude.html">Altitude Chat</a></li>
+                        <li><a href="checklist.html">Packing Checklist</a></li>
+                        <li><a href="ph.html">Photos </a></li>
+                        <li><a href="vds.html">Videos</a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="contact_us_kailash.html">Contact</a></li>   
+            </ul>
+        </nav>
+    </header></br></br></br>
+    
+      
+    <div class="container">
+        <h1>Photos by Our Traveller's</h1>
+        <p>A visual speaks more than what thousand worlds can say and that is equally correct for the glimpses<br>
+             of holy the pilgrimage trips we organise that has been exhibited through images of our<br>
+              happy travellers in our photo gallery below:-</p><br>
+
+              <a href="video.html">View Our Popular Videos>></a><br><br>
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-5">
+        <div class="col">
+            <div class="card h-100 bg-light">  
+    <img src="https://kailash-yatra.org/photo-gallery/2019/dolma-la-pass.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+    <div class="content">
+        <h2>Dolma La Pass</h2><br>
+        <!-- <p>Sometimes travellers find snow during
+             the trecking of Mount Kailash</p> -->
+        </div>
+        
+    </div>
+    </div>
+
+
+    <div class="col">
+        <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/diraphuk.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Kailash North Face</h2><br>
+    <!-- <p>Happy travellers with beautiful background
+        of mount kailash after first day trecking. </p> -->
+    </div>
+</div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/golden_kailash.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+    <div class="content">
+        <h2>Golden Kailash View From Dirapukh</h2><br>
+        <!-- <p>The stunning and gorgeous view of <br>
+            golden kailash during the sunrise.</p> -->
+        </div>
+</div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/dolma-la-pass-highest-point.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Dolma La Pass Highest Point</h2><br>
+    <!-- <p>Traveller feel happy and excited<br>
+         after reaching the hoghest point</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/happy_faces_at_muktinath.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Happy Faces At Muktinath</h2><br>
+    <!-- <p>Happy faces of our travellers<br>
+         at muktinath temple.</p> -->
+    </div>
+</div>
+</div>
+
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/helicopter_trip.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>On Reaching Hilsa</h2><br>
+    <!-- <p>Group of travellers posing<br>
+         after reaching hilsa.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/hilsa.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Hilsa</h2><br>
+    <!-- <p>The guesthouse at hilsa<br>
+         near nepal (china border)</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/inner_kora.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Kailash Inner Kora</h2><br>
+    <!-- <p>Travellers near doing inner kora<br>
+       towards the south face of mount kailash</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/kailash_parvat.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Kailash Parwat, East Face</h2><br>
+    <!-- <p>A traveller pointing to the eastern<br>
+         face of mount kailash.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/inner_kora_trekking.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Kailash Inner Kora Trecking</h2><br>
+    <!-- <p>Travellers doing inner kora of mount<br>
+         kailash during the sunny day.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/lovely_view_of_mount_kailash.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Lovely View Of Mount Kailash</h2><br>
+    <!-- <p>Beautiful north face of mount kailash in<br>
+    backdrop, just before the sunset.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/lake_manasarovar.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Yatri Group At Mansarovara Lake</h2><br>
+    <!-- <p>Yatri group stopped near mansarovara<br>
+         lake to take a memorable photo.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/kailash_view.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>View of Holy Mount Kailash</h2><br>
+    <!-- <p>Beautiful mount kailash south face<br>
+         during the first parikrama.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/mount_kailash_view.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Mount Kailash West Face</h2><br>
+    <!-- <p>Mount kailash looking at its first<br>
+         day of trecking.</p> -->
+    </div>
+</div>
+</div>
+
+<div class="col">
+    <div class="card h-100 bg-light">
+<img src="https://kailash-yatra.org/photo-gallery/2019/mount_kailash_north_face.jpg" class="img-fluid" alt="Responsive image" style="width: 35rem;height: 20rem;">
+<div class="content">
+    <h2>Mount Kailash Charan Sparsh</h2><br>
+    <!-- <p>Way to charan sparsh. Snow covered <br>
+        mount kailash during the cloudy day.</p> -->
+    </div>
+</div>
+</div>
+
+
+
+
+
+    </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+    
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">About Us</h5>
+                    <hr class="md-4">
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+                </div>
+    
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Let Us Help</h5>
+                    <hr class="md-2">
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Your Accout</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Your Orders</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Manage your Content and Devicess</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Help</a>
+                    </p>
+                </div>
+    
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Make Money</h5>
+                    <hr class="md-4">
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Refer Friends and family </a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Advartise your Websites</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Become an Affiliates</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Self-publish</a>
+                    </p>
+                </div>
+    
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info underline-heading">Contact</h5>
+                    <hr class="md-4">
+                    <p>
+                        <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                    </p>
+                    <p>
+                        <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                    </p>
+                    <p>
+                        <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                    </p>
+                    <p>
+                        <li class="fas fa-print mr-3"></li>--  +012 3456789
+                    </p>
+                </div>
+    
+            <hr class="mb-4">
+                <div class="row d-flex justify-content-center">
+                    <div>
+                        <p class="text-white">
+                        copyright Senzwiz Technologies 2023 All Rights Reserved By :
+                        <a href="#" style="text-decoration: none;">
+                            <strong class="text-info">The Provider</strong>
+                        </a>
+                        </p>
+                    </div>
+                </div>
+                    <div class="footer-col d-flex justify-content-center">
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+  
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>  
+    
+
+    
+</body>
+</html>

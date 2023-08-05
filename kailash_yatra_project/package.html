@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .welcome {
+            color: orangered;
+        }
+        .season-images {
+          width: 80px;
+          height: 80px;
+        }
+        .card-spaceing {
+            margin-top: 10px;
+            margin-left: 25px;
+        }
+        .season-cards1 {
+          background-color: rgb(253, 239, 217);
+        }
+        .season-cards2 {
+          background-color: rgb(209, 254, 230);
+        }
+        .season-cards3 {
+          background-color: rgb(217, 239, 253);
+        }
+        .list_styles {
+          list-style-type: circle;
+        }
+        .get_quote {
+          color: orange;
+          font-size: 30px;
+        }
+        .contact {
+          color: orange;
+          text-align: center;
+        }
+        .modal_para {
+          text-align: center;
+        }
+
+
+
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+
+}
+body{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(250, 246, 242);
+}
+header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: rgb(247, 249, 250);
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(248, 227, 173);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: blue;
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: green;
+    
+} 
+
+.container {
+  position: relative;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #fdd551;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+    </style>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header class="header_fixed fixed">
+        <a href="logo.webp" class="logo">Kailash Yatra</a>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+  
+        <nav class="navbar">
+            <ul>
+               
+                <li><a class="nav1" href="place_home.html">Home</a></li>
+                <li><a href="aboutus_page.html">About</a></li>
+                <li><a href="package.html">Packages</a></li>
+                <li><a href="#">Papular Places</a>
+                    <ul>
+                        <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                        <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                        <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                        <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                    </ul>
+                </li>
+                <li><a href="trip.html">Travel Guide</a>
+                    <ul>
+                        <li><a href="blog.html">Blog & Stories</a></li>
+                        <li><a href="reviews.html">Review</a></li>
+                        <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                        <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                        <li><a href="altitude.html">Altitude Chat</a></li>
+                        <li><a href="checklist.html">Packing Checklist</a></li>
+                        <li><a href="ph.html">Photos </a></li>
+                        <li><a href="vds.html">Videos</a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="contact_us_kailash.html">Contact</a></li>   
+            </ul>
+        </nav>
+    </header></br></br></br>
+  </div>
+    <div class="container-fluid">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://cdn.pixabay.com/photo/2022/09/15/10/56/glacier-7456226_640.jpg" class="d-block  w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Kailash Yathra Packages</h5>
+                  <p>The one place you have to visit in your entire life.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2021/03/25/16/56/lake-6123622_640.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Kailash Yathra Packages</h5>
+                  <p>The one place you have to visit in your entire life.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2023/02/23/06/50/river-7808058_640.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Kailash Yathra Packages</h5>
+                  <p>The one place you have to visit in your entire life.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div><!--carousel-->
+        
+        <p class="welcome">Welcome To</p>
+        <h2>Kailash Yathra Packages</h2> 
+        <p>Kailash Mansarovar Yatra is a popular Hindi pilgrimage in India undertaken by 
+            hundreds of devotees each year. The yatra involves doing two things- A parikrama 
+            of Mount Kailash and taking a dip in the holy Mansarovar Lake for washing away one's sins.</p> 
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button w-50" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Read More
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        If asked to name a place on the earth where the most powerful source of eternal 
+                        cosmic energy exists then there is only one answer, The Land of admired God – 
+                        The Kailash Mansarovar. Energy of this place is full of spirituality & divinity. 
+                        This the place where each & everyone who follows or seeks Hinduism, Yoga, Divinity 
+                        or Peace, must wish to visit this holy land of God of Gods. Though it’s a dream of
+                         each Shiva devotee to go for Kailash Mansarovar Yatra at least once in this 
+                         materialistic life but in reality, there are very few who are really able to 
+                         make it, even though they might have all resources to go but probably there is 
+                         no invitation from the land. Visiting Kailash Mansarovar is not just for this 
+                         life but also for the life beyond this life.<br><br>
+                         As per the Hindu mythology it is believed, Lake Manasarovar was formed by Lord 
+                         Brahma, who is the creator god. He found it to be an appropriate place for 
+                         religious rituals. Hid 12 sons, who were also holy men performed rituals and 
+                         austerities on the dry land at the site.<br><br>
+                         According to the epic Mahabharata, it is said that the Pandava brothers, 
+                         along with their wife Draupadi, trekked to the summit of mount Kailash on 
+                         their path to liberation, as it is considered to be a gateway to Heaven, 
+                         also known as Swarga Loka.<br><br>
+                         The region around Mount Kailash and the Indus headwaters area is typified by 
+                         wide-scale faulting of metamorphosed late-Cretaceous to mid-Cenozoic sedimentary 
+                         rocks which have been intruded by igneous Cenozoic granitic rocks. Mount Kailash 
+                         appears to be a metasedimentary roof pendant supported by a massive granite base. 
+                         The Cenozoic rocks represent offshore marine limestones deposited before subduction 
+                         of the Tethys oceanic crust. These sediments were deposited on the southern margin 
+                         of the Asia block during subduction of the Tethys oceanic crust before the collision 
+                         between the Indian and Asian continents.
+                    </div>
+                  </div>
+                </div>
+            </div><!--Accordian-->
+            <div class="images mt-4 mb-4">
+                <p class="welcome">Tour Packages</p>
+                <h3>Most Popular Kailash Yathra Tour Packages</h3>
+                <div class="row">
+                    <div class=" col-lg-4 col-sm-12">
+                        <div class="card card-spaceing" style="width: 400px; ">
+                          <div class="container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bYgUEoLreMhUUnHlFF67dJfRp8JfeP9aFVz2M6b4zHyO670LNwndgfxzRWtb6IfPVvg&usqp=CAU"  class="image card-img-top mt-2" width="1000px" height="350px" alt="...">
+                            <div class="middle">
+                              <div class="text">Basic Package</div>
+                            </div>
+                          </div>
+                            <div class="card-body">
+                              <center><h5 class="card-title">Kailash Yathra Basic</h5>
+                              <p class="card-text">2 Days - 3 Nights</p>
+                              <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Enquiry</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 ">
+                        <div class="card card-spaceing" style="width: 400px; ">
+                          <div class="container">
+                            <img src="https://www.allindiatravelinfo.com/kailash-manasarovar-yatra/images/gallery/lhasa.jpg"  class="image card-img-top mt-2 " width="1000px" height="350px" alt="...">
+                            <div class="middle">
+                              <div class="text">Premium Package</div>
+                            </div>
+                          </div>
+                            <div class="card-body">
+                              <center><h5 class="card-title">Kailash Yathra Premium</h5>
+                              <p class="card-text">3 Days - 4 Nights</p>
+                              <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Enquiry</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 ">
+                        <div class="card card-spaceing" style="width: 400px;" >
+                          <div class="container">
+                            <img src="https://www.team-bhp.com/forum/attachments/travelogues/606594d1315492329-when-i-went-walking-tibet-kailash-mansarovar-yatra-2011-dsc07263.jpg"  class="image card-img-top mt-2 " width="1000px" height="350px" alt="...">
+                            <div class="middle">
+                              <div class="text">Luxury Package</div>
+                            </div>
+                          </div>
+                            <div class="card-body">
+                              <center></cnter><h5 class="card-title">Kailash Yathra Luxury</h5>
+                              <p class="card-text">4 Days - 5 Nights</p>
+                              <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Enquiry</a></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--card images-->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title get_quote" id="exampleModalLabel">Get a Quote</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-6">
+                          <h3>How It Works</h3>
+                          <ul>
+                            <li class="list_styles">
+                              Tell us Details of your holiday Plan
+                            </li>
+                            <li class="list_styles">
+                              After you submit the form, one of our travel experts will get back to you 
+                              with customised holiday package based on your requirement, within 24 hours.
+                            </li>
+                            <li class="list_styles">
+                              Grab the deal and start packing your bags for an indelible holiday with Tour My India.
+                            </li>
+                          </ul><br><br><hr>
+                          <p class="modal_para">Call Us For Details</p>
+                          <p class="contact">+91-900011212</p>
+                        </div>
+                        <div class="col-6">
+                          <h3>Fill Details</h3>
+                          <form class="row g-3">
+                            <div class="col-md-4">
+                              <label for="validationDefault01" class="form-label">First name</label>
+                              <input type="text" class="form-control" id="validationDefault01" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationDefault02" class="form-label">Last name</label>
+                              <input type="text" class="form-control" id="validationDefault02" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationDefault02" class="form-label">Email Id</label>
+                              <input type="mail" class="form-control" id="validationDefault02" required>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="validationDefault03" class="form-label">City</label>
+                              <input type="text" class="form-control" id="validationDefault03" required>
+                            </div>
+                            <div class="col-md-3">
+                              <label for="validationDefault04" class="form-label">State</label>
+                              <select class="form-select" id="validationDefault04" required>
+                                <option>Arunachal Pradesh</option>
+                                <option>Andhra Pradesh</option>
+                                <option>Assam</option>
+                                <option>Bihar</option>
+                                <option>Chattisgarh</option>
+                                <option>Goa</option>
+                                <option>Gujarat</option>
+                                <option>Haryana</option>
+                                <option>Himachal Pradesh</option>
+                                <option>Jammu and Kashmir</option>
+                                <option>Jharkhand</option> 
+                                <option>Karnataka</option> 
+                                <option>Kerala</option> 
+                              </select>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationDefault01" class="form-label">Travel Dates</label>
+                              <input type="Date" class="form-control" id="validationDefault01" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationDefault02" class="form-label">Duration</label>
+                              <input type="number" class="form-control" id="validationDefault02" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationDefault01" class="form-label">No Of Persons</label>
+                              <input type="number" class="form-control" id="validationDefault01" required>
+                            </div>
+                            <div class="col-md-4">
+                              <label for="validationDefault02" class="form-label">Contact no</label>
+                              <input type="tele" class="form-control" id="validationDefault02" required>
+                            </div>
+                            <div class="col-md-3">
+                              <label for="validationDefault05" class="form-label">Zip</label>
+                              <input type="text" class="form-control" id="validationDefault05" required>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                <label class="form-check-label" for="invalidCheck2">
+                                  Agree to terms and conditions
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <button class="btn btn-outline-success mt-1" type="submit">Submit Form</button>
+                              <button class="btn btn-outline-primary mt-1" type="submit">Print Form</button>
+                            </div><!--submit button-->
+                          </form><!--modal Input forms-->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+            </div><!--Modal-->
+            <div class="seasons mb-4">
+              <p class="welcome">Timing</p>
+              <h2>Best Time To visit Kailash Manasa sarovar</h2>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="card season-cards1 mt-2" >
+                            <center><img src="https://www.shutterstock.com/image-vector/beautiful-summer-illustrations-vector-label-600w-262066847.jpg" class="card-img-top img-fluid  season-images mt-2" alt="..."></center>
+                            <div class="card-body">
+                              <h5 class="card-title">Kailash Mansarovar in Summer Season </h5>
+                              <p class="card-text">April, May and June is the summer season in Kailash Mansarovar. 
+                                It is the beginning month of the Kailash Mansarovar Yatra. The temperature during 
+                                this time ranges from 8°C to 16°C in the day and lows of around 5°C at the night.
+                                 May or June is also when one can witness the famous Saga Dawa Festival in Tibet.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="card season-cards2 mt-2" >
+                            <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIihGNjiH-Zl4h-cpF1fVa0Mqep7RMIID7_g&usqp=CAU" class="card-img-top img-fluid  season-images mt-2" alt="..."></center>
+                            <div class="card-body">
+                              <h5 class="card-title">Kailash Mansarovar in Summer Season </h5>
+                              <p class="card-text">July to Mid August is the monsoon season in Kailash Mansarovar. 
+                                Being a deserted land, the rain showers in Tibet don’t last for long and the land 
+                                gets dried quickly. Quite a lot of people prefer this month because it is the holy 
+                                month of Shravana. The average temperature during this time is 10°C to 23°C. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="card season-cards3 mt-2" >
+                            <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSkjM5lYIpmnhW4w-dHFoaeDCm4XPEqzs06g&usqp=CAU" class="card-img-top img-fluid  season-images mt-2" alt="..."></center>
+                            <div class="card-body">
+                              <h5 class="card-title">Kailash Mansarovar in Summer Season </h5>
+                              <p class="card-text">October to March is the winter season in Kailash Mansarovar. 
+                                The temperature during these months drops to as low as - 20°C with freezing cold 
+                                wind blowing in the region. The snowfall starts in October, continues nonstop in 
+                                November, December, January and February and starts reducing in March.  
+
+                              </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--seasons-->
+
+            <div class="Travel mb-3">
+              <p class="welcome">How To Reach</p>
+              <h2>How To Reach Kailash Manasa sarovar</h2>
+              <div class="row">
+                <div class="col-4 mt-4">
+                  <img src="https://www.tourmyindia.com/states/jammu-kashmir/kashmir-images/flight.webp" class="img-fluid" width="420px" alt="...">
+                </div>
+                <div class="col-8 mt-4">
+                    <h4>By Air</h4>
+                    <p>The easiest way to reach Jammu and Kashmir is by flying to either Srinagar International Airport or Jammu Airport. 
+                      Both airports have good connections with major Indian cities and some international destinations. 
+                      Upon arrival, you can hire a taxi or take a pre-paid taxi to reach your desired destination within Jammu and Kashmir.</p>
+                </div><!--Flight-->
+                <div class="col-4 mt-4">
+                  <img src="https://www.tourmyindia.com/states/jammu-kashmir/kashmir-images/train.webp" class="img-fluid" width="420px" alt="...">
+                </div>
+                <div class="col-8 mt-4">
+                    <h4>By Rail</h4>
+                    <p>For train travel, the most convenient railway station is Jammu Tawi Railway Station in Jammu. 
+                      It is well-connected to various major cities in India. From the railway station, you can hire a taxi or take a local bus to continue your journey into Jammu and Kashmir.</p>
+                </div><!--Train-->
+                <div class="col-4 mt-4">
+                  <img src="https://www.tourmyindia.com/states/jammu-kashmir/kashmir-images/bus.webp" class="img-fluid" width="420px" alt="...">
+                </div>
+                <div class="col-8 mt-4">
+                    <h4>By Road</h4>
+                    <p>Jammu district is connected to the rest of the state, including the summer capital Srinagar, through National Highway 1A. Daily bus services are available from Jammu to almost all towns in northern India. Jammu and Kashmir can be reached by road through several national highways and state highways. Here are a few common routes:
+
+                      From Delhi: Drive via NH44, passing through Ambala, Ludhiana, Jalandhar, and Pathankot, and then continue towards Jammu or Srinagar, depending on your destination in Jammu and Kashmir.</p>
+                </div><!--Train-->
+              </div>
+            </div><!--Travelling Routes-->
+
+            <footer class="bg-dark text-light pt-5 pb-4">
+              <div class="container text-center text-md-left">
+                <div class="row text-center text-md-left">
+        
+                  <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light">About Us</h5>
+                    <hr class="md-4">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+                  </div>
+        
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light">Let Us Help</h5>
+                    <hr class="md-4">
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Your Accout</a>
+                    </p>
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Your Orders</a>
+                    </p>
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Manage your Content and Devicess</a>
+                    </p>
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Help</a>
+                    </p>
+                  </div>
+        
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light">Make Money</h5>
+                    <hr class="md-4">
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Refer Friends and family </a>
+                    </p>
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Advartise your Websites</a>
+                    </p>
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Become an Affiliates</a>
+                    </p>
+                    <p>
+                      <a href="#" class="text-light" style="text-decoration: none">Self-publish</a>
+                    </p>
+                  </div>
+        
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-light">Contact</h5>
+                    <hr class="md-4">
+                    <p>
+                      <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                    </p>
+                    <p>
+                      <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                    </p>
+                    <p>
+                      <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                    </p>
+                    <p>
+                      <li class="fas fa-print mr-3"></li>--  +012 3456789
+                    </p>
+                  </div>
+        
+                  <hr class="mb-4">
+                  <div class="row d-flex justify-content-center">
+                    <div>
+                      <p>
+                        copyright 2023 All Rights Reserved By :
+                        <a href="#" style="text-decoration: none;">
+                          <strong class="text-light">Senzwiz Technologies</strong>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="footer-col d-flex justify-content-center">
+                    <div class="social-links">
+                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#"><i class="fab fa-twitter"></i></a>
+                         <a href="#"><i class="fab fa-instagram"></i></a>
+                         <a href="#"><i class="fab fa-youtube"></i></a>
+                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+        
+        
+        
+                </div>
+              </div>
+            </footer><!--Footer-->
+
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

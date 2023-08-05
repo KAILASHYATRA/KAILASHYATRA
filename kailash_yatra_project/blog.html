@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+        text-decoration: none;
+    }
+    body{
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-color: rgb(250, 246, 242);
+  }
+header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+
+
+
+
+
+
+
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: goldenrod;
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(228,188,86);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+
+
+    
+
+img{
+  width: 100%;
+  
+}
+  h1{
+    text-align: center;
+    
+  }
+  
+.inner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  color: black;
+  padding: 30px;
+}
+h3{
+  font-size: 50px;
+}
+
+
+        h2{
+            font-size: 40px;
+            padding: 15px;
+        }
+    
+    .card-title{
+        font-size: 40px;
+        padding-left: 15px;
+    }
+    .card-text{
+      padding-left: 15px;
+    }
+    .row img{
+      width: 100%;
+      border-radius: 5px;
+    }
+   .row img:hover{
+    transform: scale(1.1);
+    transition: .5s ease-in-out;
+    }
+
+/* <!---------foooter--> */
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: rgb(119, 119, 255);
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: rgb(244, 245, 245);
+    
+}
+
+    
+        
+    </style>
+  </head>
+  <body>
+    <header class="header_fixed fixed">
+      <a href="logo.webp" class="logo">Kailash Yatra</a>
+
+      <input type="checkbox" id="menu-bar">
+      <label for="menu-bar">Menu</label>
+
+      <nav class="navbar">
+          <ul>
+             
+              <li><a class="nav1" href="place_home.html">Home</a></li>
+              <li><a href="aboutus_page.html">About</a></li>
+              <li><a href="package.html">Packages</a></li>
+              <li><a href="#">Papular Places</a>
+                  <ul>
+                      <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                      <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                      <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                      <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Travel Guide</a>
+                  <ul>
+                      <li><a href="blog.html">Blog & Stories</a></li>
+                      <li><a href="reviews.html">Review</a></li>
+                      <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                      <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                      <li><a href="altitude.html">Altitude Chat</a></li>
+                      <li><a href="checklist.html">Packing Checklist</a></li>
+                      <li><a href="ph.html">Photos </a></li>
+                      <li><a href="vds.html">Videos</a></li>
+                      
+                  </ul>
+              </li>
+              <li><a href="contact_us_kailash.html">Contact</a></li>   
+          </ul>
+      </nav>
+  </header></br></br>
+  
+    
+    
+    <!--------home image-->
+    
+  
+  
+    
+    <br>
+    <br>
+    <section>
+      <h1 class="heading1 bold important text-danger">Blog</h1>
+    <div class="image-container">
+      <img src="https://cdn.pixabay.com/photo/2019/11/02/03/16/sapp-kailash-4595562_1280.jpg" class="img-fluid" alt="Responsive image">
+      <div class="text-center bg-text inner">  
+      </div>
+    </div>
+    </section>
+    <section>
+        <div class="blog-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="text-center text-danger strong">Information And Stories</h2>
+                    </div>
+                </div>
+                <div class="row bg-dark">
+                    <div class="column">
+                    <div class="card mb-3"  >
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="https://cdn.pixabay.com/photo/2014/04/06/00/52/kailash-317456_640.jpg" class="img-fluid rounded-start img-thumbnail" alt="..." style="width: 35rem;height: 20rem;">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title text-success strong">Manimahesh</h5>
+                              <p class="card-text">Manimahesh is one of the Panch Kailash which is in Chamba District of Himachal Pradesh and the other Kailash are Kailash Mansarovar in Tibet, Adi Kailash in Pithoragarh district of Uttarakhand, Shrikhand Mahadev in Kullu District of Himachal Pradesh, and Kinnaur Kailash in Kinnaur District of Himachal Pradesh. <br>
+                                The manifestation of the Lord Shiva is supposed to be a rock formation on top of the mountain that resembles a Shiva Lingam and is known as Manimahesh Shivling. The Mani Mahesh Peak is believed to be visible only to those who are lucky. If Lord Shiva is happy then the peak will be clearly visible and clouds covering the peak denote the displeasure of Lord Shiva.</p>
+                              <p class="card-text">Author:Aastha Negi</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+
+                       <div class="column">
+                      <div class="card mb-3" >
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="https://cdn.pixabay.com/photo/2017/03/21/21/16/tibet-2163372_640.jpg" class="img-fluid rounded-start img-thumbnail" alt="..." style="width: 35rem;height: 20rem;">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title text-success strong">Importance Of Adikailash</h5>
+                              <p class="card-text">According to the Hindu mythology, Adi Kailash is the abode of Lord Shiva, his consort Parvati and their offspring Ganpati and Kartikey. Therefore, the spectacular Adi Kailash mountain range is considered as the most sacred mountain range in the world and is worshiped by many Hindus for its religious importance
+                                <br>The Adi Kailash or Chota Kailash is located in a different direction, near Sin La pass and near Brahma Parvat, the base camp of Adi Kailash is 17 km from the Kutti village at sacred Jolingkong Lake with Lord Shiva temple.
+                              </p>
+                              <p class="card-text">Author:Arundhati</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                       
+                      <div class="column">
+                        <div class="card mb-3"  >
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="https://static.wixstatic.com/media/93dbc1_68a8e823d9ed4f0bbc58a41471097e7b~mv2.jpg/v1/fill/w_925,h_548,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/93dbc1_68a8e823d9ed4f0bbc58a41471097e7b~mv2.jpg" class="img-fluid rounded-start img-thumbnail" alt="..." style="width: 35rem;height: 20rem;">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title text-success strong">Four Faces Of Kailash</h5>
+                                  <p class="card-text">Standing at a massive elevation of 22,000 feet the holy Mount Kailash is an embodiment of faith, spirituality, religion, hope, and love. The Kailash Mansarovar yatra is undertaken every year by hundreds of pilgrims. The large black mass of rock shaped like an Egyptian pyramid is not just a mere mountain like any other. For the various pilgrims coming on this religious and adventurous journey, this mountain is of great religious and spiritual relevance. For the Hindus, it is the Abode of Shiva, while for the Jains it is said to be the place where Bhagwan Rishabdev attained Nirvana. The mystical mountain is also of religious significance to Buddhists and the Tibetan Bon Tons. </p>
+                                  <p class="card-text">Author:Vikram</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          
+        
+
+<div class="column">
+    <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://www.touchkailash.com/uploads/banner/1450332527_saptarishi-cave.jpg" class="img-fluid rounded-start img-thumbnail" alt="..." style="width: 35rem;height: 20rem;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-success strong">Kailash Inner Kora</h5>
+              <p class="card-text">Mount Kailash Inner Kora (parikrama) starts and ends at Darchen. On the first day, we will start our hike from Derapuk visiting  Kailash Charan Sparsa in the coming days we will explore the Serlung monastery and get a closer view of Mount Kailash from here. Touch Atmalingam, Saptarishi cave of inner kora and Ice Lingam. Inner Kailash kora of Nandi Parvat by crossing high pass in between Mount Kailash and Nandi hill called Nandi La and Khandosalgam La (Pass), after which we will get back to Darchen by evening. Completing your inner kora at Kailash and you can set up again from Derapuk, KuberKunda, Mount Kailash Charan Sparsa and reach Juthulpuk.
+
+                
+                </p>
+              <p class="card-text">Author:Kiran Desai</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+<div class="column">
+    <div class="card mb-3"  >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://kailash-yatra.org/images/adi-kailash-driving-in-car.jpg" class="img-fluid rounded-start img-thumbnail" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-success strong">Mount Kailash - The Mystery Remains Unsolved
+            </h5>
+              <p class="card-text">Many daring mountaineers have attempted to make their way to the peak of Kailash Parvat, but no one could ever make it to the abode of Shiva. According to Hindu scriptures, meddling with the divinity of the sacred Mount is a forbidden act as this can disturb the Godhead, Lord Shiva Kailash, who resides in the mountain with his consort and Nandi. With the record of unsuccessful attempts at the summit, Mount Kailash remained unexplored to date. Rough weather, altitude sickness, diverging in the wrong direction, and misleading trails are some hindrances that deter even the toughest trekkers. According to Buddhist scriptures, Milarepa - the Tibetan Buddhist monk, could scale up the peak in the 11th Century. He is a sole sage whose name is etched in the Kailash Mansarovar history</p>
+              <p class="card-text">Author:Ruskin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+<div class="column">
+    <div class="card mb-3" >
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="https://kailash-yatra.org/images/blog/lake-mansarovar-with-trishul.jpg" class="img-fluid rounded-start img-thumbnail" alt="..." style="width: 35rem;height: 20rem;">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title text-success strong">
+                Significance of Lake Mansarovar</h5>
+            <p class="card-text text-success strong">Lake Manasarovar and Mount Kailash are believed to be the abode of Shiva. This is where the holy river the Ganges is believed to be tamed by Shiva and sent to nourish the fertile valleys below the Himalayas. It is sometimes conflated with Meru.[3] For the Khas Hindu shamans of the nearby region of Humla (northwest Nepal), a ritual bath in Lake Manasarovar is an important step in gaining their shamanic powers.
+                <br>The Bon religion is also associated with the holy place of Zhang Zhung Meri sacred deity. When Tonpa Shenrab, the founder of the Bon religion, visited Tibet for the first time and bathed in the lake.
+  </p>
+            <p class="card-text">Author:Aravind</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="column">
+    <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://d1v9pyzt136u2g.cloudfront.net/blog/wp-content/uploads/2021/05/29042753/visiting-mount-kailash-be5ddceeefe7-1600x768.jpg" class="img-fluid rounded-start img-thumbnail" alt="..." style="width: 35rem;height: 20rem;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-success strong">Om Parvat</h5>
+              <p class="card-text">Om Parvat can be viewed on the route to the Kailash Manasarovar Yatra from the last camp below Lipulekh Pass. Recently it is also claimed by Nepal, that the territory falls under Darchula District, Nepal, Where India claim it in Indian Uttarakhand side on Dharchula, Pithoragarh district. But it has always been the sacred mountain for Hindus among all over the world.[6] Many trekkers to Adi Kailash often make a diversion to view Om Parvat. Om Parvat is located near Nabhi Dhang camp on Mount Kailash-Lake Manasarovar yatra route.
+
+              </p>
+              <p class="card-text text-success strong">Author:Anitha</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container text-center text-md-left">
+          <div class="row text-center text-md-left">
+  
+              <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info">About Us</h5>
+                  <hr class="md-4">
+                  <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+              </div>
+  
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info">Let Us Help</h5>
+                  <hr class="md-2">
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Your Accout</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Your Orders</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Manage your Content and Devicess</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Help</a>
+                  </p>
+              </div>
+  
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info">Make Money</h5>
+                  <hr class="md-4">
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Refer Friends and family </a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Advartise your Websites</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Become an Affiliates</a>
+                  </p>
+                  <p>
+                      <a href="#" class="text-white" style="text-decoration: none">Self-publish</a>
+                  </p>
+              </div>
+  
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold text-info underline-heading">Contact</h5>
+                  <hr class="md-4">
+                  <p>
+                      <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                  </p>
+                  <p>
+                      <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                  </p>
+                  <p>
+                      <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                  </p>
+                  <p>
+                      <li class="fas fa-print mr-3"></li>--  +012 3456789
+                  </p>
+              </div>
+  
+          <hr class="mb-4">
+              <div class="row d-flex justify-content-center">
+                  <div>
+                      <p class="text-white">
+                      copyright Senzwiz Technologies 2023 All Rights Reserved By :
+                      <a href="#" style="text-decoration: none;">
+                          <strong class="text-info">The Provider</strong>
+                      </a>
+                      </p>
+                  </div>
+              </div>
+                  <div class="footer-col d-flex justify-content-center">
+                      <div class="social-links">
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                          <a href="#"><i class="fab fa-youtube"></i></a>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </footer>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+

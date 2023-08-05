@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Map Page</title>
+    <style>
+    /* <!--------navbar--> */
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+
+}
+/* body{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(174, 248, 248);
+} */
+header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: rgb(247, 249, 250);
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(248, 227, 173);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+     /* <!--------navbar--> */
+    
+
+
+
+        body {
+            margin: 20px;
+            padding: 0;
+            background-color: rgb(250, 246, 242);
+        }
+
+        .main-1 {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 38px;
+            font-weight: bold;
+        }
+
+        .main-1 p {
+            font-size: 20px;
+        }
+
+        .main-3 .card {
+            margin-bottom: 20px;
+            width: 30%;
+        }
+        .col-lg-8 img{
+            width: 100%;
+        }
+        .col-lg-8 p{
+            font-size: 20px;
+        }
+
+/* <!---------foooter--> */
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: rgb(119, 119, 255);
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: rgb(244, 245, 245);
+    
+}
+
+    </style>
+</head>
+<body>
+    <header class="header_fixed fixed">
+        <a href="logo.webp" class="logo">Kailash Yatra</a>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+  
+        <nav class="navbar">
+            <ul>
+               
+                <li><a class="nav1" href="place_home.html">Home</a></li>
+                <li><a href="aboutus_page.html">About</a></li>
+                <li><a href="package.html">Packages</a></li>
+                <li><a href="#">Papular Places</a>
+                    <ul>
+                        <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                        <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                        <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                        <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                    </ul>
+                </li>
+                <li><a href="trip.html">Travel Guide</a>
+                    <ul>
+                        <li><a href="blog.html">Blog & Stories</a></li>
+                        <li><a href="reviews.html">Review</a></li>
+                        <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                        <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                        <li><a href="altitude.html">Altitude Chat</a></li>
+                        <li><a href="checklist.html">Packing Checklist</a></li>
+                        <li><a href="ph.html">Photos </a></li>
+                        <li><a href="vds.html">Videos</a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="contact_us_kailash.html">Contact</a></li>   
+            </ul>
+        </nav>
+    </header></br></br></br>
+
+
+
+    <div class="main-1">
+        <h1 class="text-center text-danger">Kailash Mansarovar Yatra Maps</h1>
+        <p>Kailash Manasarovar Yatra takes you to Tibet Autonomous Region of China. Situated close to Indo-China border near
+             Utrakhand and Ladakh, Nagari region of Tibet comes alive every year when thousands of pilgrims and adventure
+             seekers visit Kailash Manasarovar from all corners of the world. There are many routes for traveling to Kailash
+             Manasarovar, and we have provided the best map below showing various routes for traveling to the Nagari region.
+             If you need more detailed information on the map, feel free to contact our team to get a Kailash Yatra map that
+             shows distance and elevation.</p>
+             
+        </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <img src="https://www.kailash-yatra.org/maps/xkailash-yatra-route-map.jpg.pagespeed.ic.UXW_i6pC4_.webp" alt="Kailash Mansarovar Yatra Map" class="img-fluid"><br>
+              
+                <h1>Mount Kailash Outer Kora and Inner Kora Map</h1>
+                <p>The parikrama (kora) of Mount Kailash is for 52 kms out of which about 10 kms is done by vehicle. The outer kora
+                    / parikrama of Mount Kailash is a 42 kms trek from Tarboche to Dirapuk (12 kms), Dirapuk to Zuthulpuk (22 kms) 
+                    and Zuthulpuk to Chongdo (08 kms). When it comes to Inner Kora of Mount Kailash one need to understand that the
+                     inner parikrama (kora) has three important legs (1) Charan Sparsh from Dirapuk (06 kms trek), Kuber Kund Trek
+                     from Shiva Tsal to Zuthulpuk (18 kms trekking) and the most important part is Nandi Kora which starts from 
+                     Darchen and includes Nandi Parvat Kora, Ashtapad Trekking, Atma Linga and Saptarishi Caves mainly. Below the
+                      the best map for mount kailash trek showing trekking routes, elevation and distance so as to make it easy 
+                      for you to prepare accordingly.</p>
+
+                      <img src="https://www.kailash-yatra.org/maps/xkailash-yatra-parikrama-map.jpg.pagespeed.ic.5QC4IoPYof.webp" alt="Mount Kailash Outer Kora and Inner Kora Map" class="img-fluid"><br>
+            
+                      <h1>Satellite Map Lake Mansarovar to Mount Kailash Outer Kora</h1>
+                      <p>Kailash Manasarovar Yatra takes you to Tibet Autonomous Region of China. Situated close to Indo-China border near 
+                          Utrakhand and Ladakh, Nagari region of Tibet comes alive every year when thousands of pilgrim and adventure 
+                          seeker sivit Kailash Manasarovar from all corners of the world. There are many routes for travelling to Kailash
+                           Manasarovar out of which Overland trip to Kailash Manasarovar from Kathmandu, Helicopter trip to Kailash
+                           Manasarovar from Kathmandu ex Simikot and Overland trips to Kaialsh Manasarovar from Lhasa are most popular
+                            routes. We are giving below the est map for Kailash Manasarovar Yatra showing various routes for travelling
+                             to Nagari region. If you need more informative map, do contact our team to get Kailash Yatra map showing 
+                             distance and elevation.</p>
+
+                             <img src="https://www.kailash-yatra.org/maps/xmount-kailash-parikrama-map-satellite-view.jpg.pagespeed.ic.72iOiEPHfC.webp" alt="Satellite Map Lake Mansarovar to Mount Kailash Outer Kora" class="img-fluid"><br><br>
+                  
+                             <h1>Kailash Mansarovar Yatra Maps</h1>
+        <p>Kailash Manasarovar Yatra takes you to Tibet Autonomous Region of China. Situated close to Indo-China border near
+             Utrakhand and Ladakh, Nagari region of Tibet comes alive every year when thousands of pilgrims and adventure
+             seekers visit Kailash Manasarovar from all corners of the world. There are many routes for traveling to Kailash
+             Manasarovar, and we have provided the best map below showing various routes for traveling to the Nagari region.
+             If you need more detailed information on the map, feel free to contact our team to get a Kailash Yatra map that
+             shows distance and elevation.</p>
+
+             <img src="https://www.kailash-yatra.org/maps/xkailash-yatra-route-map.jpg.pagespeed.ic.UXW_i6pC4_.webp" alt="Kailash Mansarovar Yatra Map" class="img-fluid"><br>
+              
+             
+            </div>
+            
+            <div class="col-lg-4">
+                <h2>Our Most Popular Pilgrimage Tour Packages for 2023</h2>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xmount-kailash-beautiful-view.jpg.pagespeed.ic.xczTxN0BY1.webp" alt="Kailash Mansarovar Yatra by Helicopter from Kathmandu" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">Kailash Mansarovar Yatra by Helicopter from Kathmandu</p>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xmount-kailash-south-face.jpg.pagespeed.ic.oj2ZQHAkKx.webp" alt="Kailash Mansarovar Yatra by Helicopter from Lucknow" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">Kailash Mansarovar Yatra by Helicopter from Lucknow</p>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xroad-to-mount-kailash-from-lhasa.jpg.pagespeed.ic.p02ufoYqzs.webp"  alt="Kailash Mansarovar Yatra by Drive from Kathmandu" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">Kailash Mansarovar Yatra by Drive from Kathmandu</p>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xmount-kailash-morning-view.jpg.pagespeed.ic.Evoz0cglwk.webp"  alt="Kailash Mansarovar Yatra via Lhasa" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">Kailash Mansarovar Yatra via Lhasa</p>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xmount-kailash-nandi-kora.jpg.pagespeed.ic.CcQP_t2Zkt.webp"  alt="Mount Kailash Inner Kora Tour Package via Kyirong" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">Mount Kailash Inner Kora Tour Package via Kyirong</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xkailash-yatra-private-helicopter-service.jpg.pagespeed.ic.0t26M-4jKW.webp"  alt="VIP Kailash Mansarovar Yatra by Private Helicopter" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">VIP Kailash Mansarovar Yatra by Private Helicopter</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xchardham-yatra-with-kedarnath-by-helicopter.jpg.pagespeed.ic.C5TnpG1XhX.webp" alt=" Luxury Char Dham Yatra by Helicopter" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success"> Luxury Char Dham Yatra by Helicopter</p>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <img src="https://www.kailash-yatra.org/images/xmount-om-parvat.jpg.pagespeed.ic.3lAV8mV8hA.webp"  alt="Adi Kailash Om Parvat Tour Packages" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-success">Adi Kailash Om Parvat Tour Packages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<br>
+<br>
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info">About Us</h5>
+                <hr class="md-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info">Let Us Help</h5>
+                <hr class="md-2">
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Your Accout</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Your Orders</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Manage your Content and Devicess</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Help</a>
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info">Make Money</h5>
+                <hr class="md-4">
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Refer Friends and family </a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Advartise your Websites</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Become an Affiliates</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Self-publish</a>
+                </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info underline-heading">Contact</h5>
+                <hr class="md-4">
+                <p>
+                    <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                </p>
+                <p>
+                    <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                </p>
+                <p>
+                    <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                </p>
+                <p>
+                    <li class="fas fa-print mr-3"></li>--  +012 3456789
+                </p>
+            </div>
+
+        <hr class="mb-4">
+            <div class="row d-flex justify-content-center">
+                <div>
+                    <p>
+                    copyright Senzwiz Technologies 2023 All Rights Reserved By :
+                    <a href="#" style="text-decoration: none;">
+                        <strong class="text-info">The Provider</strong>
+                    </a>
+                    </p>
+                </div>
+            </div>
+                <div class="footer-col d-flex justify-content-center">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</footer>
+
+               
+
+
+
+    <!-- Bootstrap JS script tag -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

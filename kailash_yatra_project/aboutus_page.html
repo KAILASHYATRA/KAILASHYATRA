@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Kailash Yatra Home Page</title>
+
+
+    <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+
+}
+body{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(250, 246, 242);
+}
+header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+
+
+
+
+
+
+
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: rgb(221, 248, 252);
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(228,188,86);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+
+
+video {
+  width: 100%;
+  margin-top: -10%;
+}
+/* <!---------foooter--> */
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: rgb(119, 119, 255);
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: rgb(244, 245, 245);
+    
+}
+
+
+/* <!------about us--> */
+.about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.paddingTB60 {
+    padding-top:60px;
+    padding-bottom:60px;
+}
+.team-content {
+    padding: 0px 15px 15px 15px;
+}
+.image-aboutus-banner {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRO6xChVb8vjMkyJE6dFa2NP9uDu-Rtrxo7eOyjppgUg&usqp=CAU&ec=48600112");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    padding-top: 110px;
+    padding-bottom:110px;
+ }
+.image-aboutus-sm-banner {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    padding-top: 30px;
+    padding-bottom:30px;
+ }
+.about-image{
+    flex: 1;
+    /* margin-right: 10px; */
+    overflow: hidden;
+}
+.about-image img{
+    width: 70vw;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s ease;
+    /* margin-left: 10px; */
+}
+.about-image:hover img{
+    transform: scale(1.2);
+}
+.about-content{
+    flex: 1;
+}
+.about-content h2{
+    font-size: 30px;
+    /* margin-bottom: 15px; */
+    font-family: "Roboto";
+    color: black;
+    font-weight: bold;
+}
+.about-content p{
+    font-size: 18px;
+    line-height: 2;
+    font-family: 'Roboto';
+    font-weight: 200;
+    color: black;
+}
+.border {
+    background: #e1e1e1;
+    height: 1px;
+    width: 25%;
+    /* margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px; */
+}
+.team-content {
+    padding: 0px 15px 15px 15px;
+}
+.border-team {
+    border-bottom:1px solid #e2e2e2;
+    /* margin-bottom:10px; */
+}
+body {
+    font-family: 'Roboto';
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    font-style: normal;
+    color: #494949;
+    font-size: 16px;
+}
+p {
+    font-weight: 400;
+    font-style: normal;
+    color: #494949;
+}
+
+h3 {
+    line-height: 26px;
+    font-size: 20px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    font-style: normal;
+    color: #000;
+}
+.site-heading h3{
+    font-size : 40px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.team-content:hover image{
+    transform: scale(1.2);
+}
+.team-image{
+    height: auto;
+    width: 10px;
+    max-width: 40px;
+}
+img:hover{
+transform: translateZ(10px);
+}
+.card-img-top:hover{
+  transform: scale(1.2);
+
+}
+
+   
+    </style>
+
+  </head>
+  <body>
+
+
+    <header class="header_fixed fixed">
+      <a href="logo.webp" class="logo">Kailash Yatra</a>
+
+      <input type="checkbox" id="menu-bar">
+      <label for="menu-bar">Menu</label>
+
+      <nav class="navbar">
+          <ul>
+             
+            <li><a class="nav1" href="place_home.html">Home</a></li>
+              <li><a href="aboutus_page.html">About</a></li>
+              <li><a href="package.html">Packages</a></li>
+              <li><a href="#">Papular Places</a>
+                  <ul>
+                      <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                      <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                      <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                      <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                  </ul>
+              </li>
+              <li><a href="#">Travel Guide</a>
+                  <ul>
+                      <li><a href="blog.html">Blog & Stories</a></li>
+                      <li><a href="reviews.html">Review</a></li>
+                      <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                      <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                      <li><a href="altitude.html">Altitude Chat</a></li>
+                      <li><a href="checklist.html">Packing Checklist</a></li>
+                      <li><a href="ph.html">Photos </a></li>
+                      <li><a href="vds.html">Videos</a></li>
+                      
+                  </ul>
+              </li>
+              <li><a href="contact_us_kailash.html">Contact</a></li>   
+          </ul>
+      </nav>
+  </header></br></br></br>
+      
+
+    <!-- <video width="400" autoplay muted loop >
+      <source src="place_videos.mp4" type="video/mp4">
+    </video> -->
+
+
+    <h1 class="headi_ng text-center">About Us</h1>
+    <div class="container-fluid p-3">
+      <div class="image-aboutus-banner">
+          <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                <h1 class="lg-text">About Us</h1>
+                <p class="image-aboutus-para text-white">Mansarovar Kailash Yatra is not about vising just one place but witnessing footprints & divinity of Shiva. </p>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-lg-12 ">
+      <hr>
+      <h2 class="head_2 text-center text-danger">Transforming each step into an impression</h2>
+      <hr>
+      <!-- Preview Image -->
+      <img class="img-responsive" src="http://mobilebusinessinsights.com/wp-content/uploads/2016/03/IBM_MobileFirst_SXSWBlog_0321_v2.jpg" alt="">
+      <hr>
+      <p>Known as Kangrinboqe Peak in Tibet, Mount Kailash is one of the most sacred mountains as it is believed to be naval of the universe. According to Shiva Purana visiting Mount Kailash and doing its Parikrama would bring good fortune and wash away sins. This four-faced holy mountain (North, South, East and West) is the origin of four major rivers of Asia, namely the Indus, Karnali, Brahmaputra, and Sutlej.</p>
+      <p>At altitude of more than 15000 ft, Kailash Mansarovar weather & temperature has extreme versatilities. In the May & June months of Yatra season, its sunny in the days & colder in nights. During Yatra ending time of August & September months, days are pleasant & nights are colder, but in Yatra we don’t travel in nights.</p>
+      <p>There are mainly 2 routes for Kailash Mansarovar, first one is directly from India which is organized by Ministry of External Affairs (MEA) of Govt. of India and another is Nepal route. MEA route has another 2 options, first is Kailash Yatra via Lipulekh Pass in Uttrakhand & second option is Kailash Yatra via Nathula Pass in Sikkim. Nepal route also has 2 options, by helicopter & by road.</p>
+      <p>Kailash Mansarovar Yatra eligibility depends on the route we choose for the Yatra. Passport & registration form are essential documents in all circumstances. Additionally medical certificate, pan card & photographs are other documents needed for the Yatra. </p>
+      <p>Kailash Yatra season starts from May month & continues till September. Each month has some positive aspects & some challenges. Though May & June are too sunny but preferred mostly due to vacations. July & August are preferred for Shrawan month & August & September are better if someone wishes to do Mt. Kailash Parakrama in pleasant weather. </p>
+      <hr>
+    </div>
+    <h1 class="headi_n text-center text-danger">Mountains</h1>
+    <div class="row row-cols-1 row-cols-md-4 g-4 p-5">
+      <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://media.istockphoto.com/id/1168017979/photo/view-of-the-north-face-of-mount-kailash-at-sunset-viewed-from-deraphuk.jpg?b=1&s=612x612&w=0&k=20&c=-x-K17Iu7SfYd24fTqRxFvvVriHyYOuKfQbd4MapwtQ=" class="card-img-top img-thumbnail h-50 w-100" alt="...">
+            <br> 
+            <div class="card-body">
+              <h5 class="card-title text-success">Sunset viewed from Deraphuk</h5>
+                    <p class="card-text">The Northern face of Mt Kailash. And a glorious sunset. Viewed from Deraphuk. See our journey! Slideshow. Done. </p>                  
+
+            </div>
+          </div>
+        </div>
+      <div class="col">
+        <div class="card h-100 bg-light ">
+          <img src="https://media.istockphoto.com/id/1168017537/photo/snow-covered-landscape-on-the-darchen-to-deraphuk-leg-of-the-journey-around-the-mount-kailash.jpg?b=1&s=612x612&w=0&k=20&c=8oVz5yEmZCo2tcDuOnkeyMMmnag6cbLs2lW1D4JcHwA=" class="card-img-top img-thumbnail h-50 w-100" alt="...">
+          <br> 
+          <div class="card-body">
+            <h5 class="card-title text-success">Snow Covered Landscape </h5>
+                    <p class="card-text">Darchen is situated right in front of the sacred mountain, Mount Kailash. Its altitude is 4,670m (15,321 feet) and it is the starting and ending point point for the parikrama/kora of Mount Kailash.</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 bg-light">
+          <img src="https://media.istockphoto.com/id/1218551790/photo/the-gauri-kund-mountain-lake-during-the-ritual-kora-around-sacred-mount-kailash-ngari-scenery.jpg?b=1&s=612x612&w=0&k=20&c=jtGbaUhBiSIBz_J1WETlr3BQeZ_BsXiczoWiRlNAl4Y=" class="card-img-top img-thumbnail h-50 w-100" alt="...">
+          <br> 
+          <div class="card-body">
+            <h5 class="card-title text-success">Gauri Kund Mountain </h5>
+            <p class="card-text">The Gauri Kund mountain lake during the ritual kora (yatra) around sacred Mount Kailash. Ngari scenery in West Tibet. Sacred place for Buddha pupils. Place of prayer, calm and meditation.</p>
+  
+          </div>
+        </div>
+      </div>
+      <div class="col">
+          <div class="card h-100 bg-light">
+            <img src="https://kailash-yatra.org/images/holy-mount-kailash.jpg" class="card-img-top img-thumbnail h-50 w-100" alt="...">
+            <br> 
+            <div class="card-body">
+              <h5 class="card-title text-success">Mount Kailash</h5>
+              <p class="card-text">A winsome mystical agglomeration, a heavenly abode to Lord Shiva, an immensely esteemed
+                pious destination ardently followed by thousands of devotees from all over the world-
+                this is what defines the spiritual as well as..</p>
+            </div>
+          </div>
+        </div>
+  </div>  
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info">About Us</h5>
+                <hr class="md-4">
+                <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info">Let Us Help</h5>
+                <hr class="md-2">
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Your Accout</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Your Orders</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Manage your Content and Devicess</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Help</a>
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info">Make Money</h5>
+                <hr class="md-4">
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Refer Friends and family </a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Advartise your Websites</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Become an Affiliates</a>
+                </p>
+                <p>
+                    <a href="#" class="text-white" style="text-decoration: none">Self-publish</a>
+                </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-info underline-heading">Contact</h5>
+                <hr class="md-4">
+                <p>
+                    <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                </p>
+                <p>
+                    <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                </p>
+                <p>
+                    <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                </p>
+                <p>
+                    <li class="fas fa-print mr-3"></li>--  +012 3456789
+                </p>
+            </div>
+
+        <hr class="mb-4">
+            <div class="row d-flex justify-content-center">
+                <div>
+                    <p class="text-white">
+                    copyright Senzwiz Technologies 2023 All Rights Reserved By :
+                    <a href="#" style="text-decoration: none;">
+                        <strong class="text-info">The Provider</strong>
+                    </a>
+                    </p>
+                </div>
+            </div>
+                <div class="footer-col d-flex justify-content-center">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

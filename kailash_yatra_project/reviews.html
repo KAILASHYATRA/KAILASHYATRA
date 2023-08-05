@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type ="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>customers Reviews</title>
+    
+   
+<body>
+    <style>
+       *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+
+}
+        body{
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(250, 246, 242);
+}
+header{
+    position: fixed;
+    height: 70px;
+    top: 0;left: 0;right: 0;
+    background: #e1f2fd;
+    box-shadow: 0 5px 10px rgba(0,0, 0,.1);
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+header .logo{
+    font-weight: bolder;
+    font-size: 35px;
+    color: #333;
+    text-decoration: none;
+}
+header .navbar ul{
+list-style: none;
+
+}
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+header .navbar ul li a:hover{
+    background: #e1f2fd;
+    color: black;
+}
+
+header .navbar ul li ul{
+    position: absolute;
+    left: 0;
+    width: 250px;
+    
+    display: none;
+}
+header .navbar ul li ul li{
+    width: 100%;
+    border-top: 0px solid rgba(0,0, 0,0.1);
+}
+header .navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+    display: initial;
+    background: #f6f7f8;
+}
+#menu-bar{
+    display: none;
+}
+header label{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+
+}
+
+
+
+
+
+
+
+@media(max-width:700px){
+    header{
+        padding: 30px;
+        height: 3px;
+    }
+    header label{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%;left: 0px;right: 0;
+        background: goldenrod;
+        border-top: 1px solid rgba(0,0, 0,.1);
+        display: none;
+        
+    }
+    header .navbar ul li{
+        width: 100%;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+
+    }
+    header .navbar ul li ul li{
+        background: rgb(228,188,86);
+    }
+    header .navbar ul li ul li ul{
+        width: 100%;
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar{
+     display: initial;
+}
+}
+        a{
+            text-decoration: none;
+        }
+        #testimonials{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        .testimonial-heading{
+            letter-spacing: 1px;
+            margin: 30px 0px;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .testimonial-heading h1{
+            font-size: 2.2rem;
+            font-weight: 500;
+            background-color: skyblue;
+            color: black;
+            padding: 10px 50px;
+            font-weight: bold;
+        }
+        .testimonial-heading span{
+            font-size: 1.3rem;
+            color: #252525;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .testimonial-box-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .testimonial-box{
+            width: 400px;
+            box-shadow: 2px 2px 30px egba(0,0,0,0.1);
+            background-color: #ffffff;
+            padding: 10px;
+            margin: 42px;
+            cursor: pointer;
+        }
+        .profile-img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        .profile-img img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .profile{
+            display: flex;
+            align-items: center;
+        }
+        .name-user{
+            display: flex;
+            flex-direction: column;
+        }
+        .name-user strong{
+            color: orchid ;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+        .name-user span{
+            color: #979797;
+            font-size: 1.5rem;
+        }
+        .reviews{
+            color: #f9d71c;
+        }
+        .box-top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+        }
+        .client-comment p{
+            font-size: 1.5rem;
+            color: #4b4b4b;
+        }
+        .testimonial-box:hover{
+            transform: translateY(-10px);
+            transition: all ease 0.3s;
+        }
+        @media(max-width:1060px){
+            .testimonial-box{
+                width: 45%;
+                padding: 10px;
+            }
+        }
+       /* <!---------foooter--> */
+.footer-col h4{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+}
+.footer-col .social-links{
+    text-align: center;
+    padding-bottom: 30px;
+    color: black;
+}
+.footer-col .social-links a{
+    font-size: 25px;
+    color: rgb(119, 119, 255);
+
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 100%;
+    margin: 0 5px;
+    opacity: 0.75;
+}
+.footer-col .social-links a:hover{
+    background: rgb(244, 245, 245);
+    
+}
+    </style>
+    
+    <header class="header_fixed fixed">
+        <a href="logo.webp" class="logo">Kailash Yatra</a>
+  
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+  
+        <nav class="navbar">
+            <ul>
+               
+                <li><a class="nav1" href="place_home.html">Home</a></li>
+                <li><a href="aboutus_page.html">About</a></li>
+                <li><a href="package.html">Packages</a></li>
+                <li><a href="#">Papular Places</a>
+                    <ul>
+                        <li><a href="papular_places_page_home.html">Kailash Mansarovar</a></li>
+                        <li><a href="papular_places_page01.html">Pashupatinath Temple</a></li>
+                        <li><a href="papular_places_page02.html">Mount Kailash</a></li>
+                        <li><a href="papular_places_page03.html">Jal Narayan Vishnu Temple</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Travel Guide</a>
+                    <ul>
+                        <li><a href="blog.html">Blog & Stories</a></li>
+                        <li><a href="reviews.html">Review</a></li>
+                        <li><a href="mapdoc.html">Kailash Yatra Map</a></li>
+                        <li><a href="Table_weather.html">Kailash Yatra Weather</a></li>
+                        <li><a href="altitude.html">Altitude Chat</a></li>
+                        <li><a href="checklist.html">Packing Checklist</a></li>
+                        <li><a href="ph.html">Photos </a></li>
+                        <li><a href="vds.html">Videos</a></li>
+                        
+                    </ul>
+                </li>
+                <li><a href="contact_us_kailash.html">Contact</a></li>   
+            </ul>
+        </nav>
+    </header></br></br></br>
+
+
+
+<section id="testimonials">
+    <div class="testimonial-heading">
+     
+        <h1> what our customers say about us</h1>
+    </div>
+<!--testi box-->
+<div class="testimonial-box-container">
+    <div class="testimonial-box">
+        <div class="box-top">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="https://th.bing.com/th/id/OIP.HwMgp4ZE_haHjGY8xX5RwAHaFS?pid=ImgDet&rs=1"/>
+                </div>
+                <div class="name-user">
+                    <strong>Ashu Gupta</strong>
+                    <span>-Australia</span>
+                </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><!--empty star-->
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>A very comfortable trip planned by max holidays team.Brilliant hospitality and ur 'always happy to help' attitude kept us going through Kailash - Mansarovar Yatra.Although we met with inevitable weather issues but the Max Team,true to its name, created a coccon for all pilgrims...The bond developed between Max Team and us is very new but the warmth in it seems like aged.
+                    
+                </p>
+            </div>
+        </div>
+ 
+
+<!--box 2-->
+<div class="testimonial-box">
+    <div class="box-top">
+        <div class="profile">
+            <div class="profile-img">
+                <img src="https://th.bing.com/th/id/OIP.u238QxZk9rXArxN80Gul_wHaLH?pid=ImgDet&w=682&h=1024&rs=1"/>
+            </div>
+            <div class="name-user">
+                <strong>Akshay Munish</strong>
+                <span>-Bareilly</span>
+            </div>
+            </div>
+            <div class="reviews">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><!--empty star-->
+            </div>
+        </div>
+        <div class="client-comment">
+            <p>Few things command more respect than hard work, integrity, dedication and the ability to follow through. These are among the many attributes we experienced from start to finish after completing our trip to Kailash Mansarovar with this travel agent. This travel agent is an excellent listener and pays attention to every detail; a lost quality in today's world.
+                My hearty thanks to Max holidays for arranging a memorable
+
+            </p></div>
+    </div>
+
+
+<div class="testimonial-box">
+    <div class="box-top">
+        <div class="profile">
+            <div class="profile-img">
+                <img src="https://th.bing.com/th/id/OIP.cxNIoWgRNhdtERRBxDw2AgHaLH?pid=ImgDet&w=1920&h=2880&rs=1"/>
+            </div>
+            <div class="name-user">
+                <strong>Parul Seth</strong>
+                <span>-Jammu, India</span>
+            </div>
+            </div>
+            <div class="reviews">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i><!--empty star-->
+            </div>
+        </div>
+        <div class="client-comment">
+            <p>Taking care of one's group is great. But helping people of other group is greatest. This we found in Vishal of Max Holidays. When our tour operator, Nepal Pilgrim Travels, Mylapore, was nowhere to be seen and who had left us high and dry, it was Mr. Vishal who helped us a lot. Stranded at Hilsa on 3rd July and when some of us were ill he brought in his team doctors immediately and assured us that we would be taken care of.  </p>
+            </div>
+    </div>
+    <div class="testimonial-box">
+        <div class="box-top">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="https://th.bing.com/th/id/OIP.9Nr-W1-pxSrgdwDTqrpwEgHaLG?pid=ImgDet&rs=1"/>
+                </div>
+                <div class="name-user">
+                    <strong>Surendra Kumar</strong>
+                    <span>-New delhi</span>
+                </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i><!--empty star-->
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>I travelled with my mother to Kailash-mansarovar on 11days Heli-Kailash tour of ‘Max Holidays’ in July’22...I am happy the way Max team handled our entire journey... Specially Mr.Prince Bedi who extended his helping hand at every point during booking and then while traveling with us to Kailash..He calmly n patiently handled all our queries and was making sure to provide a safe n secure environment for women travellers like us (In our Grp we were 5 solo women traveller). 
+                </p>
+                </div>
+        </div>
+        <div class="testimonial-box">
+            <div class="box-top">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="https://th.bing.com/th/id/OIP.NDCobVJLhveJqRit7N7gOAHaEA?pid=ImgDet&w=2400&h=1298&rs=1"/>
+                    </div>
+                    <div class="name-user">
+                        <strong>Anushka Kapse </strong>
+                        <span>-UK</span>
+                    </div>
+                    </div>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i><!--empty star-->
+                    </div>
+                </div>
+                <div class="client-comment">
+                    <p>I had a strong desire to visit Kailash Mansarovar, When I started searching for good tour operator, It was very difficult to identify the best one as all were promising the best. In the process when I contacted Max Holidays and asked the contact number of a person who visited Kailash last year, I was provided the number of three person and I contacted one Mr. Nirankar Agarwal who explained the entire process of yatra and with his satisfied experience with Max, I along with two colleagues took up the journey with the Max.
+                    </p>
+                    </div>
+            </div>
+
+
+<div class="testimonial-box">
+    <div class="box-top">
+        <div class="profile">
+            <div class="profile-img">
+                <img src="https://images.alphacoders.com/706/thumb-1920-706181.jpg"/>
+            </div>
+            <div class="name-user">
+                <strong>Varun Behl</strong>
+                <span>-Jammu,India</span>
+            </div>
+            </div>
+            <div class="reviews">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><!--empty star-->
+            </div>
+        </div>
+        <div class="client-comment">
+            <p>Great hospitality by Max holidays well planned and organised staff. A team leader is there mr vishal ji and his team including Girish vats, Pemba, you name any of the staff members of max team, all are expert in handling Kailash Mansarovar Yatra.
+
+                And most importantly despite we stuck at hilsa due to bad weather, what an enthusiasm was shown by Max team, they took care of us also and other fellow pilgrims also.I specially appreciate Mr Vishal for his efforts to satisfy every group member against all odds.
+            </p> 
+        </div>
+    </div>
+
+<div class="testimonial-box">
+    <div class="box-top">
+        <div class="profile">
+            <div class="profile-img">
+                <img src="https://th.bing.com/th/id/OIP.vorRpIARmV1SFyNjM-RycwHaIe?pid=ImgDet&w=1024&h=1172&rs=1"/>
+            </div>
+            <div class="name-user">
+                <strong>Jatin Arora</strong>
+                <span>-Delhi</span>
+            </div>
+            </div>
+            <div class="reviews">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><!--empty star-->
+            </div>
+        </div>
+        <div class="client-comment">
+            <p>It was last year November when I decided to visit abode of Lord Shiva - Mount Kailash. I searched a lot on the internet to find out a good travel agent who can be reliable for this journey. I was so glad that I found max holidays. The team was very helpful throughout the journey. I would like to appreciate the entire Kailash crew who were very supportive and helpful. I would like to take this moment to give my special thanks to Mr. Vishal Gogia as CEO in this organization.
+            </p>
+        </div>
+    </div>
+    <div class="testimonial-box">
+        <div class="box-top">
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="https://th.bing.com/th/id/OIP.fW5AzNncIJHVKDth0y1zIQHaE8?pid=ImgDet&w=2048&h=1368&rs=1"/>
+                </div>
+                <div class="name-user">
+                    <strong>Aruna Nataraj</strong>
+                    <span>-Sydney</span>
+                </div>
+                </div>
+                <div class="reviews">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><!--empty star-->
+                </div>
+            </div>
+            <div class="client-comment">
+                <p>We were the June 22’ Yatra batch to visit Mt Kailash, Great Girish the Lead. Our dream Yatra was fulfilled with Max holidays with comfort, safety the most. Travelling all the way from Sydney for the Yatra we felt pampered most. Our expectation was nothing more than what was told by Max & we were taken care beyond our expectation. Friendly staff & sherpas was great & Mr. Vishal Gogio himself travelling with us was our life time POT LUCK.
+    
+                </p>
+            </div>
+        </div>
+        <div class="testimonial-box">
+            <div class="box-top">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="https://th.bing.com/th/id/OIP.cG3eBAvwDGI57e9wXaoPsgAAAA?pid=ImgDet&w=350&h=450&rs=1"/>
+                    </div>
+                    <div class="name-user">
+                        <strong>Vikash Awasthi</strong>
+                        <span>-Madhya Pradesh</span>
+                    </div>
+                    </div>
+                    <div class="reviews">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><!--empty star-->
+                    </div>
+                </div>
+                <div class="client-comment">
+                    <p>I along with my wife has performed Kailash Yatra in June'18 thru Max Holidays and it was amazing experience to be with them.During the course of Yatra we met over more than 20 tour operators in this sector but without any second thought we can say MAX HOLIDAYS is the BEST. We would like to THANK Amit, Girish, Minakshi & TEAM MAX for memorable trip of lifetime. Special thanks to VISHALJI for all the time with us & making our trip trouble free & smooth
+        
+                    </p>
+                </div>
+            </div>
+   
+
+</div>
+    </section>
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-left">
+            <div class="row text-center text-md-left">
+    
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">About Us</h5>
+                    <hr class="md-4">
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde dolorum provident explicabo itaque sit! Commodi eos necessitatibus ipsa ullam incidunt! Laborum a porro vero necessitatibus quisquam maxime similique voluptas?</p>
+                </div>
+    
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Let Us Help</h5>
+                    <hr class="md-2">
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Your Accout</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Your Orders</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Manage your Content and Devicess</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Help</a>
+                    </p>
+                </div>
+    
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Make Money</h5>
+                    <hr class="md-4">
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Refer Friends and family </a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Advartise your Websites</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Become an Affiliates</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none">Self-publish</a>
+                    </p>
+                </div>
+    
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info underline-heading">Contact</h5>
+                    <hr class="md-4">
+                    <p>
+                        <li class="fas fa-home mr-3"></li>-- Bangalore ST 234567,India
+                    </p>
+                    <p>
+                        <li class="fas fa-envelope mr-3"></li>-- kalashyatra234@gmail.com
+                    </p>
+                    <p>
+                        <li class="fas fa-phone mr-3"></li>-- +91 9876543210
+                    </p>
+                    <p>
+                        <li class="fas fa-print mr-3"></li>--  +012 3456789
+                    </p>
+                </div>
+    
+            <hr class="mb-4">
+                <div class="row d-flex justify-content-center">
+                    <div>
+                        <p class="text-white">
+                        copyright Senzwiz Technologies 2023 All Rights Reserved By :
+                        <a href="#" style="text-decoration: none;">
+                            <strong class="text-info">The Provider</strong>
+                        </a>
+                        </p>
+                    </div>
+                </div>
+                    <div class="footer-col d-flex justify-content-center">
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+</body>
+    </html>
